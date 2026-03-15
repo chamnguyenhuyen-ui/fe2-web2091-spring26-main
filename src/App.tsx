@@ -1,60 +1,18 @@
 import { Toaster } from "react-hot-toast";
 import { Link, Routes, Route } from "react-router-dom";
-import { Layout, Form, Input, Button, Table } from "antd";
+import { Layout, Form, Input, Button } from "antd";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import StudentTable from "./pages2/StudentTable";
+import ProductTable from "./pages2/ProductTable";
+import UserTable from "./pages2/UserTable";
 
 const { Header, Content, Footer } = Layout;
 
 function App() {
-
   const onFinish = (values: any) => {
     console.log(values);
   };
-
-  const columns = [
-    {
-      title: "ID",
-      dataIndex: "id",
-      key: "id",
-    },
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
-      title: "Major",
-      dataIndex: "major",
-      key: "major",
-    },
-  ];
-
-  const data = [
-    {
-      id: 1,
-      name: "Nguyen Van A",
-      age: 20,
-      major: "Lập trình Mobile",
-    },
-    {
-      id: 2,
-      name: "Tran Thi B",
-      age: 21,
-      major: "Phát triển phần mềm",
-    },
-    {
-      id: 3,
-      name: "Le Van C",
-      age: 19,
-      major: "Lập trình Web",
-    },
-  ];
 
   return (
     <div>
@@ -78,7 +36,6 @@ function App() {
       </nav>
 
       <Routes>
-
         {/* Trang chủ */}
         <Route
           path="/"
@@ -101,9 +58,7 @@ function App() {
                   <Form onFinish={onFinish}>
                     <Form.Item
                       name="email"
-                      rules={[
-                        { required: true, message: "Nhập email" },
-                      ]}
+                      rules={[{ required: true, message: "Nhập email" }]}
                     >
                       <Input placeholder="Email" />
                     </Form.Item>
@@ -113,23 +68,23 @@ function App() {
                         Login
                       </Button>
                     </Form.Item>
-                  </Form>              <Table
-                columns={columns}
-                dataSource={data}
-                rowKey="id"
-              />
+                  </Form>
+                  <StudentTable />
+                  <ProductTable />
+                  <UserTable />
+
                 </Content>
 
-                <Footer>Footer</Footer>
+                <Footer style={{ textAlign: "center", background: "#001529", color: "#fff", padding: "15px" }}>
+                  Copyright © 2026 WEB2091 
+                </Footer>
               </Layout>
             </div>
           }
         />
 
         {/* Dashboard */}
-        <Route
-          path="/dashboard" element={<Dashboard/>}/>
-
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
       </Routes>
 

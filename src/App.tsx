@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard";
 import StudentTable from "./pages2/StudentTable";
 import ProductTable from "./pages2/ProductTable";
 import UserTable from "./pages2/UserTable";
+import Login from "./pages3/Login";
+import Product from "./pages3/Product";
 
 const { Header, Content, Footer } = Layout;
 
@@ -26,12 +28,14 @@ function App() {
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/">Trang chủ</Link>
             <Link to="/dashboard">Dashboard</Link>
+            <Link to="/product">Lab3</Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="#">Đăng nhập</Link>
+            <Link to="/login">Đăng nhập</Link>
             <Link to="/register">Đăng ký</Link>
           </div>
+          
         </div>
       </nav>
 
@@ -86,6 +90,8 @@ function App() {
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
 
       <Toaster />

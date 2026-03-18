@@ -19,7 +19,7 @@ export default function StoryList() {
     },
     onSuccess: () => {
       toast.success("Xoa truyen thanh cong");
-      qc.invalidateQueries({ queryKey: ["stories"] });
+      qc.invalidateQueries({ queryKey: ["getAllStories"] });
     },
   });
   const columns = [
@@ -64,5 +64,7 @@ export default function StoryList() {
   if (isError) {
     return <div>Có lỗi xảy ra</div>;
   }
-  return <Table columns={columns} dataSource={data} loading={isLoading} />;
+  return <Table columns={columns} dataSource={data} loading={isLoading} pagination={{pageSize:5}} />;
+
+ 
 }

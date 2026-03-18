@@ -3,11 +3,13 @@ import { Link, Routes, Route } from "react-router-dom";
 import { Layout, Form, Input, Button } from "antd";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import StudentTable from "./pages2/StudentTable";
-import ProductTable from "./pages2/ProductTable";
-import UserTable from "./pages2/UserTable";
+// import StudentTable from "./pages2/StudentTable";
+// import ProductTable from "./pages2/ProductTable";
+// import UserTable from "./pages2/UserTable";
 import Login from "./pages3/Login";
-import Product from "./pages3/Product";
+// import Product from "./pages3/Product";
+import Lab4 from "./pages4/Lab4";
+import StoryList from "./pages4/Lab5";
 
 const { Header, Content, Footer } = Layout;
 
@@ -49,17 +51,17 @@ function App() {
                 Chào mừng đến với WEB2091
               </h1>
 
-              <div className="my-4 space-x-2">
+              {/* <div className="my-4 space-x-2">
                 <Button type="primary">Click me</Button>
                 <Button type="default">Click me</Button>
                 <Button type="dashed">Click me</Button>
-              </div>
+              </div> */}
 
               <Layout className="my-8 text-left">
                 <Header style={{ color: "white" }}>Header</Header>
 
                 <Content style={{ padding: 20 }}>
-                  <Form onFinish={onFinish}>
+                  {/* <Form onFinish={onFinish}>
                     <Form.Item
                       name="email"
                       rules={[{ required: true, message: "Nhập email" }]}
@@ -72,10 +74,13 @@ function App() {
                         Login
                       </Button>
                     </Form.Item>
-                  </Form>
-                  <StudentTable />
-                  <ProductTable />
-                  <UserTable />
+                  </Form> */}
+                  {/* <StudentTable /> */}
+                  {/* <ProductTable /> */}
+                  {/* <UserTable /> */}
+                  <Lab4 />
+                  <StoryList />
+                  
 
                 </Content>
 
@@ -91,7 +96,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/product" element={<Product />} />
+        {/* <Route path="/product" element={<Product />} /> */}
       </Routes>
 
       <Toaster />

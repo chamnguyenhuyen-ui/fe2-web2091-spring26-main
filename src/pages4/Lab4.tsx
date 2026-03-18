@@ -5,11 +5,11 @@ import toast from "react-hot-toast";
 
 interface Story {
   title: string;
-  author?: string;
-  image?: string;
-  description?: string;
-  Date?: string;
-  active?: boolean;
+  author: string;
+  image: string;
+  description: string;
+  date: string;
+  active: boolean;
 }
 
 export default function StoryForm() {
@@ -43,8 +43,8 @@ export default function StoryForm() {
       <Form.Item label="Description" name="description">
         <Input.TextArea />
       </Form.Item>
-      <Form.Item label="Date" name="Date">
-        <Input />
+      <Form.Item label="Date" name="date">
+        <Input type="date" />
       </Form.Item>
       <Form.Item label="Active" name="active" valuePropName="checked">
         <Checkbox>Active</Checkbox>

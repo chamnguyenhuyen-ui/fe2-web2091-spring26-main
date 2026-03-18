@@ -8,12 +8,13 @@
       "id": 1
     },
     {
-      "title": "Harry Poter ",
+      "title": "Harry Potter",
       "author": "J. K. Rowling",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTijt61te-IjZqMGMSUZt_9qiGXdIEucN5GRNRSdMMYV_CVlQsm5zE4A9dRXNXmFqaQP7yhGgDMg1xTDNpG5sV0Dn6QRLfOaF1AyxFElqew&s=10",
-      "description": "Harry Potter là một loạt tiểu thuyết huyền bí gồm bảy phần của nhà văn Anh Quốc J. K. ",
-      "Date": "1988",
-      "id": 3
+      "description": "Harry Potter là một loạt tiểu thuyết huyền bí gồm bảy phần của nhà văn Anh Quốc J. K.",
+      "date": "2026-03-18",
+      "active": true,
+      "id": 2
     }
   ],
   "categories": [

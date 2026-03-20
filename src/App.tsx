@@ -10,6 +10,7 @@ import Login from "./pages3/Login";
 // import Product from "./pages3/Product";
 import Lab4 from "./pages4/Lab4";
 import StoryList from "./pages4/Lab5";
+import { EditStory } from "./pages4/Lab6";
 
 const { Header, Content, Footer } = Layout;
 
@@ -80,6 +81,7 @@ function App() {
                   {/* <UserTable /> */}
                   <Lab4 />
                   <StoryList />
+                  <EditStory />
                   
 
                 </Content>

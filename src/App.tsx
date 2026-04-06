@@ -1,18 +1,19 @@
 import { Toaster } from "react-hot-toast";
 import { Link, Routes, Route } from "react-router-dom";
 import { Layout, Form, Input, Button } from "antd";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
+// import Register from "./pages/Register";
+// import Dashboard from "./pages/Dashboard";
 // import StudentTable from "./pages2/StudentTable";
 // import ProductTable from "./pages2/ProductTable";
 // import UserTable from "./pages2/UserTable";
-import Login from "./pages3/Login";
+// import Login from "./pages3/Login";
 // import Product from "./pages3/Product";
-import Lab4 from "./pages4/Lab4";
-import StoryList from "./pages4/Lab5";
-import { EditStory } from "./pages4/Lab6";
+// import Lab4 from "./pages4/Lab4";
+// import StoryList from "./pages4/Lab5";
+// import { EditStory } from "./pages4/Lab6";
+import Navbar from "./components/Header";
 
-const { Header, Content, Footer } = Layout;
+// const { Header, Content, Footer } = Layout;
 
 function App() {
   const onFinish = (values: any) => {
@@ -21,8 +22,8 @@ function App() {
 
   return (
     <div>
-      {/* Navbar */}
-      <nav className="bg-blue-600 text-white shadow">
+     < Navbar />
+      {/* <nav className="bg-blue-600 text-white shadow">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="text-xl font-semibold">
             <strong>WEB2091 App</strong>
@@ -40,7 +41,7 @@ function App() {
           </div>
           
         </div>
-      </nav>
+      </nav> */}
 
       <Routes>
         {/* Trang chủ */}
@@ -59,9 +60,9 @@ function App() {
               </div> */}
 
               <Layout className="my-8 text-left">
-                <Header style={{ color: "white" }}>Header</Header>
+                {/* <Header style={{ color: "white" }}>Header</Header> */}
 
-                <Content style={{ padding: 20 }}>
+                {/* <Content style={{ padding: 20 }}> */}
                   {/* <Form onFinish={onFinish}>
                     <Form.Item
                       name="email"
@@ -79,25 +80,25 @@ function App() {
                   {/* <StudentTable /> */}
                   {/* <ProductTable /> */}
                   {/* <UserTable /> */}
-                  <Lab4 />
+                  {/* <Lab4 />
                   <StoryList />
                   <EditStory />
-                  
+                   */}
 
-                </Content>
+                {/* </Content> */}
 
-                <Footer style={{ textAlign: "center", background: "#001529", color: "#fff", padding: "15px" }}>
+                {/* <Footer style={{ textAlign: "center", background: "#001529", color: "#fff", padding: "15px" }}>
                   Copyright © 2026 WEB2091 
-                </Footer>
+                </Footer> */}
               </Layout>
             </div>
           }
         />
 
         {/* Dashboard */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} /> */}
         {/* <Route path="/product" element={<Product />} /> */}
       </Routes>
 

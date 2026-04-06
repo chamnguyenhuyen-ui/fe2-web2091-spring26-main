@@ -36,22 +36,13 @@
       "id": 4
     },
     {
-      "title": "bbb",
-      "author": "Nguyen Thi K",
-      "image": "https://vgbc.vn/wp-content/uploads/2024/06/du-lich-Da-Lat-ivivu.jpg",
-      "description": "Phat trien phan mem",
-      "date": "2023-10-21",
-      "active": true,
-      "id": 6
-    },
-    {
       "title": "Thánh Gióng",
       "author": "Đỗ Thị Thanh Thảo",
       "image": "https://i0.wp.com/www.somewheretogetlost.com/wp-content/uploads/2020/06/krisztian-tabori-9r2yeRccyls-unsplash-scaled.jpg?fit=1920%2C1279&ssl=1",
       "description": "Kỹ năng học tập",
       "date": "2022-06-29",
       "active": true,
-      "id": 7
+      "id": 5
     }
   ],
   "categories": [

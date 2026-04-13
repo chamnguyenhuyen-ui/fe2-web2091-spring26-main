@@ -1,39 +1,28 @@
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext"; 
-import { Button, Avatar, Space } from "antd";
+import { useUserStore } from '../stores/useUserStore';
 
-export default function Header() {
-  const context = useContext(UserContext);
-
-  if (!context) return null;
-
-  const { user, setUser } = context;
-  const handleLogin = () => {
-    setUser({
-      name: "Huyền Châm",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=hcham",
-    });
-  };
+export const Header = () => {
+  // Lấy user và hàm logout từ Zustand store
+  const { user, logout } = useUserStore();
 
   return (
-    <header className="flex justify-between items-center p-4 bg-slate-800 text-white">
-      <div className="font-bold text-xl">WEB2091</div>
-
+    <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', background: '#f4f4f4' }}>
+      <h3>My App</h3>
+      
       <div>
         {user ? (
-          <Space size="middle">
-            <Avatar src={user.avatar} />
-            <span className="font-medium">{user.name}</span>
-            <Button danger type="primary" onClick={() => setUser(null)}>
-              Logout
-            </Button>
-          </Space>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span>Email: <strong>{user.email}</strong></span>
+            <span style={{ color: 'green' }}>(Đã đăng nhập)</span>
+            <button onClick={() => {
+              if(window.confirm('Bạn muốn đăng xuất?')) logout();
+            }}>
+              Đăng xuất
+            </button>
+          </div>
         ) : (
-          <Button type="primary" onClick={handleLogin}>
-            Login giả lập
-          </Button>
+          <span style={{ color: 'red' }}>Chưa đăng nhập</span>
         )}
       </div>
-    </header>
+    </nav>
   );
-}
+};

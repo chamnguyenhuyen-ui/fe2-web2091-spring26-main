@@ -11,7 +11,7 @@ import { Layout, Form, Input, Button } from "antd";
 // import Lab4 from "./pages4/Lab4";
 // import StoryList from "./pages4/Lab5";
 // import { EditStory } from "./pages4/Lab6";
-import Navbar from "./components/Header";
+// import Navbar from "./components/Header";
 
 // const { Header, Content, Footer } = Layout;
 
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div>
-     < Navbar />
+     {/* < Navbar /> */}
       {/* <nav className="bg-blue-600 text-white shadow">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="text-xl font-semibold">
@@ -96,8 +96,8 @@ function App() {
         />
 
         {/* Dashboard */}
-        {/* <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        {/* <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} /> */}
         {/* <Route path="/product" element={<Product />} /> */}
       </Routes>

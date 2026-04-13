@@ -1,82 +1,46 @@
-import React from 'react'
-import { Form, Input, Button } from "antd";
+import { useForm } from 'react-hook-form';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+import { useUserStore } from '../stores/useUserStore';
 
-function Register() {
-  const onFinish = (values: any) => {
-    console.log("Dữ liệu đăng ký:", values);
+export const Register = () => {
+  const login = useUserStore((state) => state.login);
+  const { register, handleSubmit, reset } = useForm();
+
+  const mutation = useMutation({
+    // mutationFn: Nhận data từ form và đẩy lên server
+    mutationFn: async (newUser: any) => {
+      const response = await axios.post('http://localhost:3000/register', newUser);
+      return response.data;
+    },
+    onSuccess: (data) => {
+      alert('Đăng ký thành công!');
+      // data trả về thường là { user: {...}, accessToken: "..." } 
+      // hoặc chỉ là object user tùy server. Ở đây mình lấy data.user
+      login(data.user || data); 
+      reset(); // Xóa sạch form sau khi đăng ký
+    },
+    onError: (error: any) => {
+      alert('Lỗi: ' + (error.response?.data || 'Không thể kết nối server'));
+    }
+  });
+
+  const onSubmit = (data: any) => {
+    mutation.mutate(data);
   };
 
   return (
-    <Form
-      name="register_lab3"
-      onFinish={onFinish}
-      layout="vertical"
-      style={{
-        maxWidth: 400,
-        margin: "30px auto",
-        padding: 24,
-        border: "1px solid #f0f0f0",
-        borderRadius: 8,
-        background: "#fff shadow-sm"
-      }}
-    >
-      <h2 style={{ textAlign: "center", marginBottom: 24 }}>Đăng Ký</h2>
-
-      <Form.Item label="Name" name="name" rules={[{ required: true, message: "Nhập tên!" }]}>
-        <Input placeholder="Nguyễn Văn A" />
-      </Form.Item>
-      <Form.Item 
-        label="Email" 
-        name="email" 
-        rules={[
-          { required: true, message: "Nhập email!" },
-          { type: 'email', message: 'Email không đúng định dạng!' }
-        ]}
-      >
-        <Input placeholder="nguyenvana@gmail.com" />
-      </Form.Item>
-
-      <Form.Item label="Phone" name="phone" rules={[{ required: true, message: "Nhập số điện thoại!" }]}>
-        <Input placeholder="0987xxx" />
-      </Form.Item>
-
-      <Form.Item 
-        label="Password" 
-        name="password" 
-        rules={[
-          { required: true, message: "Nhập mật khẩu!" },
-          { min: 6, message: 'Mật khẩu phải có ít nhất 6 ký tự!' }
-        ]}
-      >
-        <Input.Password placeholder="Mật khẩu" />
-      </Form.Item>
-
-      <Form.Item 
-        label="Confirm Password" 
-        name="confirm" 
-        dependencies={['password']}
-        rules={[
-          { required: true, message: "Xác nhận lại mật khẩu!" },
-          ({ getFieldValue }) => ({
-            validator(_, value) {
-              if (!value || getFieldValue('password') === value) {
-                return Promise.resolve();
-              }
-              return Promise.reject(new Error('Mật khẩu xác nhận không khớp!'));
-            },
-          }),
-        ]}
-      >
-        <Input.Password placeholder="Nhập lại mật khẩu" />
-      </Form.Item>
-
-      <Form.Item>
-        <Button type="primary" htmlType="submit" block size="large">
-          Đăng Ký
-        </Button>
-      </Form.Item>
-    </Form>
+    <div style={{ maxWidth: '400px', margin: '20px auto' }}>
+      <h2>Đăng ký tài khoản</h2>
+      <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <input {...register('username')} placeholder="Tên đăng nhập" required />
+        <input {...register('email')} placeholder="Email" type="email" required />
+        <input {...register('password')} placeholder="Mật khẩu" type="password" required />
+        
+        <button type="submit" disabled={mutation.isPending}>
+          {mutation.isPending ? 'Đang xử lý...' : 'Đăng ký'}
+        </button>
+      </form>
+    </div>
   );
-}
-
-export default Register;
+};
